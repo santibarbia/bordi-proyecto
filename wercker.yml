@@ -1,0 +1,73 @@
+# prueba
+box: node
+tag: 10
+lint:
+  steps:
+    - script:
+      name: install dependencies root
+      code: npm install --force
+    - script:
+      name: install dependencies proyect
+      code: npm run install:all
+    - script:
+      name: prueba pipe
+      code: echo "lint"
+build:
+  steps:
+    - script:
+      name: build and copy
+      code: npm run build:prod:copy
+deploy:
+  box:
+    id: google/cloud-sdk
+    tag: latest
+  steps:
+    - script:
+      name: install dependendes
+      code: echo "deploy"
+    - script:
+      name: get service account
+      code: echo $GC_SERVICE_ACCOUNT >> ./rest/service.json
+    - script:
+      name: get app.yaml
+      code: echo -e $APP_YAML >> ./rest/app.yaml
+    - script:
+      name: Activate Service Account
+      code: |
+        gcloud auth activate-service-account --key-file ./rest/service.json
+        gcloud config set account $GC_ACCOUNT
+        gcloud config set project $GC_PROJECT
+    - script:
+      name: Deploy in Google App Engine
+      code: |
+        # Sync
+        cd ./rest
+        # add this to the next line if it's needed: --version=alpha --stop-previous-version
+        gcloud app deploy
+deploy-prod:
+  box:
+    id: google/cloud-sdk
+    tag: latest
+  steps:
+    - script:
+      name: install dependendes
+      code: echo "deploy"
+    - script:
+      name: get service account
+      code: echo $GC_SERVICE_ACCOUNT >> ./rest/service.json
+    - script:
+      name: get app.yaml
+      code: echo -e $APP_YAML >> ./rest/app.yaml
+    - script:
+      name: Activate Service Account
+      code: |
+        gcloud auth activate-service-account --key-file ./rest/service.json
+        gcloud config set account $GC_ACCOUNT
+        gcloud config set project $GC_PROJECT
+    - script:
+      name: Deploy in Google App Engine
+      code: |
+        # Sync
+        cd ./rest
+        # add this to the next line if it's needed: --version=alpha --stop-previous-version
+        gcloud app deploy --version=alpha --stop-previous-version

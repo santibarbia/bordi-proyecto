@@ -1,0 +1,38 @@
+{
+  "name": "Orders",
+  "plural": "Orders",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "ProjectFK": {
+      "name": "ProjectFK",
+      "foreignKey": "projectId",
+      "entityKey": "id",
+      "entity": "Projects"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Details": {
+      "type": "hasMany",
+      "model": "OrderDetails",
+      "foreignKey": "orderId"
+    },
+    "Project": {
+      "type": "belongsTo",
+      "model": "Projects",
+      "foreignKey": "projectId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

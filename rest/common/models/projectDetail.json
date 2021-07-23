@@ -1,0 +1,68 @@
+{
+  "name": "ProjectDetails",
+  "plural": "ProjectDetails",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "ProjectDetailFK": {
+      "name": "ProjectDetailFK",
+      "foreignKey": "projectId",
+      "entityKey": "id",
+      "entity": "Projects"
+    },
+    "ComboProjectDetailFK": {
+      "name": "ComboProjectDetailFK",
+      "foreignKey": "comboProjectId",
+      "entityKey": "id",
+      "entity": "CombosForProjects"
+    }
+  },
+  "properties": {
+    "dateCreate": {
+      "type": "date",
+      "requitred": false
+    },
+    "dateModified": {
+      "type": "date",
+      "requitred": false
+    },
+    "seller": {
+      "type": "number",
+      "required": true
+    },
+    "sellerName": {
+      "type": "string",
+      "required": false
+    },
+    "cantidad": {
+      "type": "number",
+      "required": true
+    },
+    "subTotal": {
+      "type": "number",
+      "required": true,
+      "mysql": {
+        "dataType": "float",
+        "default": 0
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Project": {
+      "type": "belongsTo",
+      "model": "Projects",
+      "foreignKey": "projectId"
+    },
+    "Combos": {
+      "type": "belongsTo",
+      "model": "CombosForProjects",
+      "foreignKey": "comboProjectId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

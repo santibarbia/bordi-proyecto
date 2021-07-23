@@ -1,0 +1,9 @@
+.btn-primary{
+    margin: 0em auto 0 auto;
+    padding: 5px 20px 5px 20px;
+    background-color: #37c7fb; 
+    border: 1px #37c7fb;
+    border-radius: 15px;
+    font-weight: bolder;
+    font-size: 20px;
+}

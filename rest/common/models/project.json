@@ -1,0 +1,148 @@
+{
+  "name": "Projects",
+  "plural": "Projects",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "userClientIdFK": {
+      "name": "userClientIdFK",
+      "foreignKey": "userClientId",
+      "entityKey": "id",
+      "entity": "Users"
+    },
+    "userProjectIdFK": {
+      "name": "userProjectIdFK",
+      "foreignKey": "userProjectId",
+      "entityKey": "id",
+      "entity": "Users"
+    },
+    "userInstIdFK": {
+      "name": "userInstIdFK",
+      "foreignKey": "userInstId",
+      "entityKey": "id",
+      "entity": "Users"
+    },
+    "userCollaboratorIdFK": {
+      "name": "userCollaboratorIdFK",
+      "foreignKey": "userCollaboratorId",
+      "entityKey": "id",
+      "entity": "Users"
+    }
+  },
+  "properties": {
+    "dateCreate": {
+      "type": "date",
+      "required": false
+    },
+    "dateModified": {
+      "type": "date",
+      "required": false
+    },
+    "dateToClose": {
+      "type": "date",
+      "required": false
+    },
+    "dateLimit": {
+      "type": "date",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "objective": {
+      "type": "string",
+      "required": false
+    },
+    "amount": {
+      "type": "number",
+      "required": false
+    },
+    "nameSellers": {
+      "type": ["string"],
+      "required": false
+    },
+    "sellers": {
+      "type": ["any"],
+      "required": false
+    },
+    "placeOfDelivery": {
+      "type": "string",
+      "required": false
+    },
+    "typeProject": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "dataType": "ENUM('COLECTIVO','INDIVIDUAL')",
+        "default": null,
+        "nullable": "Y"
+      }
+    },
+    "checked": {
+      "type": "boolean",
+      "required": false
+    },
+    "status": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "dataType": "ENUM('ACTIVO','FINALIZADO','BORRADO')",
+        "default": null,
+        "nullable": "Y"
+      }
+    },
+    "finaly": {
+      "type": "boolean",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "AvailabilityCombos": {
+      "type": "hasMany",
+      "model": "CombosForProjects",
+      "foreignKey": "projectId"
+    },
+    "TuttiEvents": {
+      "type": "hasMany",
+      "model": "TuttiEvents",
+      "foreignKey": "projectId"
+    },
+    "Details": {
+      "type": "hasMany",
+      "model": "ProjectDetails",
+      "foreignKey": "projectId"
+    },
+    "Order": {
+      "type": "hasOne",
+      "model": "Orders",
+      "foreignKey": "projectId"
+    },
+    "UserClientProjects": {
+      "type": "belongsTo",
+      "model": "Users",
+      "foreignKey": "userClientId"
+    },
+    "UserProjectProject": {
+      "type": "belongsTo",
+      "model": "Users",
+      "foreignKey": "userProjectId"
+    },
+    "UserInstProject": {
+      "type": "belongsTo",
+      "model": "Users",
+      "foreignKey": "userInstId"
+    },
+    "UserColaboradorProject": {
+      "type": "belongsTo",
+      "model": "Users",
+      "foreignKey": "userCollaboratorId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

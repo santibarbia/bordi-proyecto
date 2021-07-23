@@ -1,0 +1,48 @@
+{
+  "name": "ContactsToContacts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "fk_cc_contactId": {
+      "name": "fk_cc_contactId",
+      "foreignKey": "contactId",
+      "entityKey": "id",
+      "entity": "Contacts"
+    },
+    "fk_cc_toContactId": {
+      "name": "fk_cc_toContactId",
+      "foreignKey": "toContactId",
+      "entityKey": "id",
+      "entity": "ToContacts"
+    }
+  },
+  "properties": {
+    "contactedStatus": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "dataType": "ENUM('PENDING_SEND','SENDED','PENDING_ANSWER','ANSWERED')",
+        "default": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contacts": {
+      "type": "belongsTo",
+      "model": "Contacts",
+      "foreignKey": "contactId"
+    },
+    "toContacts": {
+      "type": "belongsTo",
+      "model": "ToContacts",
+      "foreignKey": "toContactId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

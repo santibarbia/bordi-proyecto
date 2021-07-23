@@ -1,0 +1,42 @@
+<table class=center id=tablaCombosResume>
+  <% if (data.seller) { %>
+    <th class=center id=col1>
+      Vendedor
+    </th>
+  <% } %>
+  <th class=center id=col2>
+    Combo
+  </th>
+  <th class=center id=col3>
+    Cantidad
+  </th>
+  <th class=center id=col4>
+    SubTotal
+  </th>
+  <% data.resumeCombos.forEach(function(resumeCombo){ %>
+    <tr>
+      <% if (data.seller) { %>
+        <td class=columnasCombos class=center>
+          <%=data.seller%>
+        </td>
+      <% } %>
+      <td class=columnasCombos class=center>
+        <%=resumeCombo.combo%>
+      </td>
+      <td class=columnasCombos class=center>
+        <%=resumeCombo.cantidad%>
+      </td>
+      <td class=columnasCombos class=center>
+        <%=resumeCombo.subTotal%>
+      </td>
+    </tr>
+  <% }); %>
+</table>
+<table class=center id=tablaCombosTotal>
+  <th id=thAlgo></th>
+  <tr>
+    <td class=center>
+      Total: <%=data.total%>
+    </td>
+  </tr>
+</table>

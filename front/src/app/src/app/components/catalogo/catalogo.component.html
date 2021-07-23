@@ -1,0 +1,196 @@
+<div>
+    <div class="mt-5" >
+      
+    <!--Inicio de pagina-->
+    <div class="container-xl" id="Intro">
+    <div class="row mb-5 mt-2">
+    <div  class="col-lg-5 col-sm-12 p-5 mt-5">
+      <div id="div2">
+        <div class="circulo_izq">
+        </div>
+      </div>  
+        <h1  class="col-sm-9 letra animated zoomIn" >
+            <strong> COMBO<br class="space-in-tittle"></strong>
+            <strong>  DEL MES</strong>
+        </h1>
+        <br>
+        <h4 class="col-md-12 letra text-justify animated zoomIn"> <span>  Te brindamos herramientas de ventas <br *ngIf="controlAncho() == true" id="espacio">
+            para que cuando juntes fondos para tu proyecto
+            sea <b>¡¡mucho más fácil y práctico!!</b> 
+            </span>
+            <br> 
+            </h4>
+            
+    </div> 
+    <div class="col-lg-7">
+      <img class="w-100 h-100  " style=""  src="../../../assets/img/COMBOS mes-04.png">
+    </div>
+            
+    
+    </div>
+    <div id="div" style="top: 12%;">
+          <div class="circle"></div>
+    </div>
+  </div>
+
+    <div class="spacing"></div>
+    <!--COMBO DESTACADOS-->
+<div style="width: 100% !important; height: 100% !important; background-color: #E9E9E9;padding: 0% !important; margin-top: 10%;">
+  <div class="container-xl"> 
+  <div class="row mt-5 spacing">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11 col-sm-12 p-sm-3 mt-3">
+        <h1 id="letraTitulo" style="color: #F84629;"><strong>COMBOS DESTACADOS</strong></h1>
+    </div>
+    </div>
+    <div class="row mt-5">
+        
+      <div class="col-1" style="margin-top: 15%;" (click)="obtenerDestacados(0)"><span class="arrow"><i class="fas fa-arrow-circle-left fa-3x"></i></span></div>
+        
+            <div class="col-lg-4 col-md-3 col-sm-2 m-1" *ngFor="let combo of destacados" id="prueba">
+              <div id="boxs" class="card" style="background-color: transparent; border: none;">
+                <img loading="lazy" class="card-img-top" src="{{(combo.Files == undefined ||combo.Files.length == 0) ? '' :combo.Files[0].url }}" alt="Card image cap">
+                <div class="card-body">
+                  <button class="btn btn-block" style="background-color: #37c7fb;"><h4 class="comboCardTittle">{{combo.name}}<br></h4>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-1"></div>
+            
+        <div class="col-1" style="margin-top: 15%;" (click)="obtenerDestacados(2)"><span class="arrow"><i class="fas fa-arrow-circle-right fa-3x"></i></span></div>
+    </div>
+    
+    
+    <div class="spacing"></div>
+  <div id="div4" style="margin-top: 40%;">
+    <div class="cuartoCirculo"></div>
+</div> 
+  </div>
+
+</div>
+ 
+    <!--NUESTROS COMBOS-->
+    <div class="container">
+      <div class="row mt-5">
+      <div id="div5" style="margin-top: 37%;">
+        <div class="cuartoCirculo1"></div>
+      </div>
+     
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11">
+            <h1 id="letraTitulo" class="ml-2"><strong>NUESTROS COMBOS</strong></h1>
+        
+      </div>
+    </div>
+  </div>
+    
+
+
+    <!--BUSQUEDA-->
+  <div class="container">
+    <hr>   
+    <div class="col-1"><h4>BUSCADOR</h4></div>
+    <div class="row form-group">
+        <div class="form-group m-2">
+          <select class="custom-select" name="opcionesGral" [(ngModel)]="opcionesGral" id="opcionesGral" placeholder="Filtro">
+            <option value="2">Por Tipo</option>
+            <option value="3">Por precio ascendente</option>
+            <option value="4">Por precio descendente</option>
+            <option value="5">Por marca</option>
+            <option value="6">Por cantidad de productos</option>
+          </select>
+        </div>
+        <div class="form-group m-1 ml-2">
+          <input type="text" class="form-control col" placeholder="Buscar" name="search" [(ngModel)]="search">
+        </div>
+        <div class="form-group m-1">
+        <button type="button" class="btn btn-primary" (click)="buscador()">Buscar</button>
+      </div>
+    </div>
+    <hr>
+</div>
+
+   <!--CATALOGO-->
+    <div class="container">
+   
+   <div class="row mt-5">
+      <div class="col-12">  
+        <br>
+        <div id="boxs" class="card-columns">
+            
+                <div id="boxs" class="card animated zoomIn" style="border: none;" *ngFor="let combo of catalogo">
+                    <img class="card-img-top" src="{{combo.Files != null ? (combo.Files.length == 0 ? ' ':combo.Files[0].url): ''}}" [alt]="combo.name">
+                    <div class="card-body">
+                      <tr class="col-12">
+                        <td class="col-8" style="background-color: #37c7fb;"><h4>{{combo.name}}</h4></td>
+                        <td class="col-4" style="background-color: #F84629;"><h4 style="display: none;" class="text-right">${{combo.price}}</h4></td>
+                       </tr>
+                      <button class="btn btn-block card-text" style="background-color: #FFBC01; border: none;"
+                       data-toggle="collapse" [attr.data-target]="combo.id"
+                       aria-expanded="false" [attr.aria-controls]="combo.id" (click)="banderas(combo.id)"*ngIf="!combo.bandera">
+                        <i class="fas fa-sort-down"></i>Descripción</button>
+                      <div id="{{combo.id}}" >
+                        <p class="card-text" style="background-color: #FFBC01; border: none;" *ngIf="combo.bandera" (click)="banderas(combo.id)">{{combo.description}}</p>
+                      </div>
+                    </div>
+                  </div>
+            
+        </div>
+        <nav aria-label="Page navigation example">
+            <div class="col-5"></div>
+          <ul class="pagination justify-content-center" >
+            <li class="col-1 page-item"*ngFor="let item of pagina" (click)="obtenerCatalogo(item)">
+              <i class="fas fa-circle"></i></li>
+            
+          </ul>
+            <div class="col-4"></div>
+          </nav>
+        
+        </div>
+    </div>
+    </div>
+    <!--FIN DE PAGINA-->
+<div class="animated delay-2s fadeInUp" style="width: 100% !important; height: 100% !important; background-color: #E9E9E9;padding: 8% !important; margin-top: 10%;" id="footerDesktop">    
+<div class="container-xl">
+  <div class="row">
+  <div class="col-lg-6 col-sm-12  mt-3 mb-5 p-4">
+        <h1 class="letra"><strong>  Avanzamos juntos hacia la meta.<br></strong>
+      <strong></strong>
+    </h1>
+    <h5 class="letrambSm" style="margin-top: 1em;">Tutti siempre está para darte una mano. <br>
+    ¡Cumplamos tus sueños!</h5>
+  <br>
+    <button type="button" class="btn btn-primary btn-sm mt-3" [routerLink]="['/contacto']" routerLinkActive="router-link-active" >Quiero participar</button>
+  </div>
+    <div id="div8" style="left:10%">
+      <div class="circulo_row">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Footer Mobile  -->
+<div class="animated delay-2s fadeInUp"id="footerMobile">    
+  <div>
+    <div>
+      <div>
+        <h2><strong> Confiamos en que trabajando en equipo,</strong>
+          <strong>  todo se puede..</strong>
+        </h2>
+        <h5>Tutti siempre está para darte una mano
+        ¡Cumplamos tu sueños!
+        </h5>
+  
+    <button type="button" class="btn btn-primary btn-sm mt-3"  [routerLink]="['/contacto']" routerLinkActive="router-link-active" >Quiero participar</button>
+   </div>
+    <div>
+      <div id="div8">
+        <div class="circulo_row">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,41 @@
+.card-columns {
+      column-count: 3;
+
+  }
+.saltoLinea{
+    white-space: pre-line;
+}
+.btn-primary{
+    margin: 0em auto 0 auto;
+    padding: 5px 20px 5px 20px;
+    background-color: #37c7fb; 
+    border: 1px #37c7fb;
+    border-radius: 15px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#div2{
+    right: 100%;
+}
+
+@media(min-width:600px){
+    
+    .letra{
+        font-size: 30px;
+        white-space: pre-line;
+        padding: 0;
+        margin: 0;
+    }
+    .text-justify{
+        text-align: left;
+    }
+    
+}
+
+@media screen and (max-width:425px){
+    .card-columns {
+        column-count: 1;
+  
+    }
+}

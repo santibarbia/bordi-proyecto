@@ -1,0 +1,134 @@
+<div class="container-fluid">
+
+    <h1>Usuarios</h1>
+    <hr>
+    <div *ngIf="mensaje != '' ">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Atención!!</strong> {{mensaje}}.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-12">
+        <h5 class="font-weight-light">Colaboradores</h5>
+        <br>
+        <div class="container" style="overflow-y: scroll">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let cola of colaborador;let i = index;">{{cola.realm}}
+              <span id="icon" class="text-right"><button class="btn btn-sm" (click)="modificarUsuario(cola)" data-toggle="modal" data-target="#userMod"><i class="fa fa-pencil"></i></button><button class="btn btn-sm" (click)="borrarUsuario(cola)"><i class="fa fa-trash"></i></button></span>
+            </li>
+            
+          </ul>
+        </div>
+    </div>
+    <br>
+    <div class="col-12">
+        <h5 class="font-weight-light">Administradores</h5>
+        <br>
+        <div class="container" style="overflow-y: scroll">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let administrador of admin; let i = index;">{{administrador.realm}}
+              <span id="icon" class="text-right"><button class="btn btn-sm" (click)="modificarUsuario(administrador)" data-toggle="modal" data-target="#userMod"><i class="fa fa-pencil"></i></button><button class="btn btn-sm" (click)="borrarUsuario(administrador)"><i class="fa fa-trash"></i></button></span>
+
+            </li>
+          </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-end">
+        <div class="text-right m-2">
+            <button class="btn btn-primary btn-md" data-toggle="modal" style="background-color: #37c7fb; border: #37c7fb;" (click)="crearFormulario()" data-target="#gestUsuario">Nuevo usuario</button>
+        </div>
+        <div class="text-right m-2">
+            <button class="btn btn-primary btn-md" data-toggle="modal" style="background-color: #37c7fb; border: #37c7fb;"  data-target="#gestProyecto">Nuevo proyecto</button>
+        </div>
+    </div>
+<div class="modal fade" id="gestUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Crear Usuario</h5>
+          
+        </div>
+        <div class="modal-body">
+          <app-gest-usuarios (mensajeEvent)="recibir($event)" [gestUsuario]="usuario"></app-gest-usuarios>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="gestProyecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Crear proyecto</h5>
+          
+        </div>
+        <div class="modal-body">
+          <app-gest-proyectos></app-gest-proyectos>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="userMod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Crear Usuario</h5>
+          <div class="modal-body">
+          <form [formGroup]="userMod">
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="realm">Nombre Completo</label>
+                <input type="text" formControlName="realm" class="form-control" id="realm">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="username">Usuario</label>
+                <input type="text" formControlName="username" class="form-control" id="username">
+              </div>
+        </div>  
+            <div class="form-group">
+              <label for="address">Domicilio</label>
+              <input type="text" class="form-control" formControlName="address"  id="address" placeholder="1234 av colon">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico (Opcional)</label>
+                <input type="email" formControlName="email" class="form-control" id="email">
+              </div>
+            <div class="form-row"> 
+               <div class="form-group col-md-6">
+                <label for="dni_cuil">DNI</label>
+                <input type="number" class="form-control" formControlName="dni_cuil" id="dni_cuil">
+              </div>
+              
+            <div class="form-group col-md-6">
+            <label for="typeRole">Elija el rol</label>
+                <select id="typeRole" formControlName="typeRole" class="form-control">
+                  <option selected value="ADMIN">ADMIN</option>
+                  <option value="COLABORADOR">COLABORADOR</option>
+                </select>
+              </div>
+           
+            </div>
+        </form> 
+           
+        
+        </div>
+        
+        </div>
+        <div class="modal-footer">    
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="confirmar(userMod)">Modificar</button>
+                <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+            </div>
+      </div>
+    </div>
+  </div> 
+
+ 
+</div>
+
+
+ 

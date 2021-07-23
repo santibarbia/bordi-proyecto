@@ -1,0 +1,299 @@
+<div *ngIf="mensaje !=''">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Atención!!</strong> {{mensaje}}.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<!-- Combos -->
+<div style="width: 500px;">
+    <div class="col-12">
+      <h5>Combos</h5>
+        <div class="container" style="overflow-y: scroll;max-height: 400px;">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let combo of combos">{{combo.name}}
+              <span id="icon" class="text-right"><button class="btn btn-sm" data-toggle="modal" data-target="#modCombo" (click)="modificarCombo(combo)">
+                <i class="fa fa-pencil" ></i></button><button class="btn btn-sm" (click)="borrarCombo(combo)">
+                  <i class="fa fa-trash" ></i></button></span>
+            </li>
+            
+          </ul>
+        </div>
+    </div>
+</div>
+<!-- Historias -->
+<div style="width: 500px;">
+  <div class="col-12">
+    <h5>Historias</h5>
+      <div class="container" style="overflow-y: scroll; max-height:400px">
+      <ul class="list-group">
+          <li class="list-group-item" *ngFor="let historia of historias">{{historia.name}}
+            <span id="icon" class="text-right"><button class="btn btn-sm" (click)="modificarHistorias(historia)" data-toggle="modal" data-target="#modHistorias">
+              <i class="fa fa-pencil"></i></button><button class="btn btn-sm" (click)="borrarHistorias(historia)"><i class="fa fa-trash"></i></button></span>
+          </li>
+          
+        </ul>
+      </div>
+  </div>
+</div>
+<hr>
+
+<button class="btn btn-primary m-1" data-toggle="modal"
+        style="background-color: #37c7fb; border: #37c7fb;" 
+        data-target="#gestCombo">Cargar Combo</button>
+<button class="btn btn-primary  m-1" data-toggle="modal"
+        style="background-color: #37c7fb; border: #37c7fb;" 
+        data-target="#cargarHistorias">Cargar Historias</button>
+<button class="btn btn-primary  m-1" data-toggle="modal" data-target="#cargarImg"
+        style="background-color: #37c7fb; border: #37c7fb;" 
+        >Cargar Imagenes
+      </button>
+    <div class="modal fade" id="gestCombo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Crear Combo</h5>
+            
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="formCombo">
+            <div class="row">
+                    <div class="form-group col-md-8">
+                      <label for="name">Nombre del combo</label>
+                      <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="Nombre">
+                    
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="brand">Marca</label>
+                      <input type="text" formControlName="brand" class="form-control" id="brand">
+                    </div>
+            </div>
+            <div class="row">
+              
+              <div class="form-group col-md-8">
+                <label for="typeFood">Tipo de alimento</label>
+                <input type="text" class="form-control" formControlName="typeFood" id="typeFood" aria-describedby="Tipo de comida">
+               
+              </div>
+              <div class="form-group col-md-4">
+                <label for="price">Precio</label>
+                <input type="number" formControlName="price" class="form-control" id="price">
+              </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="description">Descripcion</label>
+                  <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                  <label for="stock">Stock</label>
+                  <input type="number" formControlName="stock" class="form-control" id="stock">
+                </div>
+            
+                <div class="form-group form-check col-md-4 mt-4">
+                  <input type="checkbox" class="form-check-input" formControlName="availability" id="availability">
+                  <label class="form-check-label"  for="availability">Disponibilidad</label>
+                </div>
+            </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" (click)="cargarCombo(formCombo)" data-dismiss="modal">Cargar Combo</button>
+                <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="cargarHistorias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Cargar Historia</h5>
+            
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="formHistorias">
+            <div class="row">
+                    <div class="form-group col-md-8">
+                      <label for="title">Titulo</label>
+                      <input type="text" formControlName="title" class="form-control" id="title" aria-describedby="Nombre">
+                    
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="name">Nombre</label>
+                      <input type="text" formControlName="name" class="form-control" id="name">
+                    </div>
+            </div>
+          
+            <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="description">Descripcion</label>
+                  <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="text">Texto</label>
+                <textarea class="form-control" formControlName="text" id="text" rows="3"></textarea>
+              </div>
+          </div>
+            
+            </form>
+          </div>
+          <div class="modal-footer">              
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="cargarHistorias(formHistorias)">Cargar Historia</button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="cargarImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Cargar Imagen</h5>
+            
+          </div>
+          <div class="modal-body">
+            <form>
+              <h5>Seleccione lo que va a modificar</h5>
+              <select class="m-1" [(ngModel)]="verArreglo" name="verArreglo" class="form-control">
+                <option value="Histories">Historias</option>
+                <option value="Combo">Combo</option>
+              </select>
+              <h5 *ngIf="verArreglo =='Combo'">Combo</h5>
+              <select *ngIf="verArreglo =='Combo'" [(ngModel)]="opcionSeleccionada" name="opcionSeleccionada" class="form-control">
+                <option *ngFor="let combo of combos"  value="{{combo.id}}">{{combo.name}}</option>
+              </select>
+              
+              <h5 *ngIf="verArreglo =='Histories'">Historias</h5>
+              <select [(ngModel)]="opcionSeleccionada" *ngIf="verArreglo =='Histories'" name="opcionSeleccionada" class="form-control">
+                <option *ngFor="let historia of historias"  value="{{historia.id}}">{{historia.name}}</option>
+              </select>
+              <div class="form-group">
+                <label for="file">Seleccionar Imagen</label>
+                <input type="file" class="form-control-file" id="file"  accept="image/*" (change)="cargarImagen($event.target.files[0])">
+              </div>
+
+              <button type="submit" [disabled]="!imagenSubir" class="btn btn-primary m-1" data-dismiss="modal" (click)="cargar()">Cargar Imagen</button>
+              <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+            </form>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+  
+
+
+<!-- Modificar Combo -->
+<div class="modal fade" id="modCombo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Modificar Combo</h5>
+        
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formComboMod">
+        <div class="row">
+                <div class="form-group col-md-8">
+                  <label for="name">Nombre del combo</label>
+                  <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="Nombre">
+                
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="brand">Marca</label>
+                  <input type="text" formControlName="brand" class="form-control" id="brand">
+                </div>
+        </div>
+        <div class="row">
+          
+          <div class="form-group col-md-8">
+            <label for="typeFood">Tipo de alimento</label>
+            <input type="text" class="form-control" formControlName="typeFood" id="typeFood" aria-describedby="Tipo de comida">
+           
+          </div>
+          <div class="form-group col-md-4">
+            <label for="price">Precio</label>
+            <input type="number" formControlName="price" class="form-control" id="price">
+          </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+              <label for="description">Descripcion</label>
+              <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-8">
+              <label for="stock">Stock</label>
+              <input type="number" formControlName="stock" class="form-control" id="stock">
+            </div>
+        
+            <div class="form-group form-check col-md-4 mt-4" style="margin-top:5px;">
+              <input type="checkbox" class="form-check-input" formControlName="availability" id="availability">
+              <label class="form-check-label"  for="availability">Disponibilidad</label>
+            </div>
+        </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary text-center m-1" data-dismiss="modal" (click)="confirmar(formComboMod)">Modificar Combo</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modificar Historia -->
+<div class="modal fade" id="modHistorias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Cargar Historia</h5>
+        
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formHistoriasMod">
+        <div class="row">
+                <div class="form-group col-md-8">
+                  <label for="title">Titulo</label>
+                  <input type="text" class="form-control" formControlName="title" id="title" aria-describedby="Nombre">
+                
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="name">Nombre</label>
+                  <input type="text" formControlName="name" class="form-control" id="name">
+                </div>
+        </div>
+      
+        <div class="row">
+            <div class="form-group col-md-12">
+              <label for="description">Descripcion</label>
+              <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="text">Texto</label>
+            <textarea class="form-control" formControlName="text" id="text" rows="3"></textarea>
+          </div>
+      </div>
+        
+        </form>
+      </div>
+      <div class="modal-footer">              
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="confirmarHistoria(formHistoriasMod)">Modificar Historia</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

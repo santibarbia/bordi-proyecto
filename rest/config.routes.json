@@ -1,0 +1,14 @@
+{
+  "protected": [
+    "/api",
+    "ProjectDetails",
+    "Contacts"
+  ],
+  "excluded": [
+    {"route": "Users/login", "verb": "POST"},
+    {"route": "Users/logout", "verb": "POST"},
+    {"route": "Combos", "verb": "GET"},
+    {"route": "Histories", "verb": "GET"},
+    {"route": "ToContacts", "verb": "POST"}
+  ]
+}

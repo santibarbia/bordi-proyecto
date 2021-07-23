@@ -1,0 +1,84 @@
+stages:
+  - prerun
+  - build
+  - deploy
+  - deployprod
+
+prerun:
+  image: node
+  stage: prerun
+  only:
+    - staging
+    - production
+  script:
+    - echo "prerun"
+
+build:
+  image: node
+  stage: build
+  only:
+    - staging
+    - production
+  script:
+    - echo install dependencies root
+    - npm install --force
+    - echo install dependencies proyect
+    - npm run install:api
+    - npm run install:front
+    - echo prueba pipe
+    - echo "lint"
+    - echo build and copy
+    - npm run build:prod:copy
+  artifacts:
+    paths:
+      - node_modules/**
+      - rest/**
+      - front/**
+    expire_in: 1 day
+  when: manual
+
+deploy:
+  image: google/cloud-sdk
+  stage: deploy
+  only:
+    - staging
+  script:
+    - echo install dependendes
+    - echo "deploy"
+    - echo get service account
+    - echo $GC_SERVICE_ACCOUNT_STAG >> ./rest/service.json
+    - echo get app.yaml
+    - echo -e $APP_YAML_STAG >> ./rest/app.yaml
+    - echo Activate Service Account
+    - gcloud auth activate-service-account --key-file ./rest/service.json
+    - gcloud config set account $GC_ACCOUNT_STAG
+    - gcloud config set project $GC_PROJECT_STAG
+    - echo Deploy in Google App Engine
+  # Sync
+    - cd ./rest
+  # add this to the next line if it's needed: --version=alpha --stop-previous-version
+    - gcloud app deploy --version=alpha --stop-previous-version
+  when: manual
+
+deployprod:
+  image: google/cloud-sdk
+  stage: deployprod
+  only:
+    - production
+  script:
+    - echo install dependendes
+    - echo "deploy"
+    - echo get service account
+    - echo $GC_SERVICE_ACCOUNT_PROD >> ./rest/service.json
+    - echo get app.yaml
+    - echo -e $APP_YAML_PROD >> ./rest/app.yaml
+    - echo Activate Service Account
+    - gcloud auth activate-service-account --key-file ./rest/service.json
+    - gcloud config set account $GC_ACCOUNT_PROD
+    - gcloud config set project $GC_PROJECT_PROD
+    - echo Deploy in Google App Engine
+  # Sync
+    - cd ./rest
+  # add this to the next line if it's needed: --version=alpha --stop-previous-version
+    - gcloud app deploy --version=alpha --stop-previous-version
+  when: manual

@@ -1,0 +1,52 @@
+{
+  "name": "Histories",
+  "plural": "Histories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "text": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "mysql": {
+        "dataType": "TEXT",
+        "default": ""
+      }
+    },
+    "status": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "dataType": "ENUM('ACTIVO','NOACTIVO','BORRADO')",
+        "default": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Files": {
+      "type": "hasMany",
+      "model": "Files",
+      "foreignKey": "historyFK"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

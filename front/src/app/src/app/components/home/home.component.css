@@ -1,0 +1,49 @@
+#label {
+  margin: -9em 0 5em -4em;
+}
+#carouselIni {
+  margin-right: -6em;
+}
+
+.btn-primary {
+  margin: 1em auto 0 auto;
+  padding: 10px 20px 10px 20px;
+  background-color: #37c7fb;
+  border: 1px #37c7fb;
+  border-radius: 15px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+#cardCualidad {
+  border-radius: 5%;
+  width: 25vw;
+  flex: none;
+  margin: 15px;
+}
+#cardCualidad2 {
+  border-radius: 5%;
+  width: 25vw;
+  flex: none;
+  margin: 15px 180px 15px 15px;
+}
+#cardCualidad img {
+  padding: 1.25rem;
+}
+@media screen and (min-width: 1920px) {
+  #cardCualidad {
+    width: 21vw;
+  }
+  #cardCualidad2 {
+    width: 21vw;
+    margin: 15px 100px 15px 15px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .inicioMobile #label {
+    width: 47vw;
+    height: auto;
+    margin: 25px auto 1.5em auto;
+    display: block;
+    padding-right: 26px;
+  }
+}

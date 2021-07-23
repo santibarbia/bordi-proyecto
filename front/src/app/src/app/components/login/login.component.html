@@ -1,0 +1,61 @@
+<div id="div2" style="top:16%">
+    <div class="circulo_izq">
+    </div>
+  </div>
+<div class="row justify-content-center mt-3">
+   
+    <div class="col-lg-3 col-md-6 col-sm-12 m-2">
+         <img src="../../assets/img/logo_nav.png" class="img-fluid w-50" style="margin-left: 23%; margin-bottom: 5%;" alt="">
+        <br>
+         <div class="text-center m-3">
+            <h1>¡Bienvenido!</h1>
+            <br>
+        </div>
+        <form [formGroup]="registroForm">
+            
+            <div class="form-group">
+                <label >Usuario</label>
+                <input type="text" class="form-control" name="usuario"
+                 formControlName="usuario"
+                 [class.is-invalid]="usuarioNoValido">
+                
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" name="password"
+                formControlName="password"
+                [class.is-invalid]="contrasenaNoValido">
+              </div>
+            <div class="row form-group" style="justify-content: center;">
+              <span *ngIf="error"
+                class="alert alert-danger">Su contraseña y/o usuario es incorrecto.</span>
+            </div>  
+              
+              <button type="button" class="btn btn-primary" style="margin-left:33%;background-color: #37c7fb; width: 35%;
+                            border-color: #37c7fb;" [disabled]="!bandera" (click)="login()"
+                            >Ingresar</button>
+        </form>
+    </div>
+</div>
+          <div class="modal" tabindex="-1" id="modal">
+              <div class="modal-dialog modal-sm"><div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Seleccione Vendedor</h5>
+                </div>
+                <div class="modal-body">
+                  <select class="custom-select" [(ngModel)]="vendedor" id="vendedor">
+                    <option selected>Seleccionar</option>
+                    <option *ngFor="let vendedor of vendedores" [value]="vendedor.id">{{vendedor.name}}</option>
+                    
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="bandera" (click)="seleccionar()">Seleccionar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+<div id="div2"  style="top:16%;left: 90%;">
+    <div class="circulo_izq">
+    </div>
+  </div>

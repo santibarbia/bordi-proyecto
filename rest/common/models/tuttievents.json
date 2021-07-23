@@ -1,0 +1,41 @@
+{
+  "name": "TuttiEvents",
+  "plural": "TuttiEvents",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "ProjectEventFK": {
+      "name": "ProjectEventFK",
+      "foreignKey": "projectId",
+      "entityKey": "id",
+      "entity": "Projects"
+    }
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "requitred": false
+    },
+    "title": {
+      "type": "string",
+      "requitred": false
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Project": {
+      "type": "belongsTo",
+      "model": "Projects",
+      "foreignKey": "projectId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

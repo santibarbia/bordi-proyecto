@@ -1,0 +1,33 @@
+{
+  "name": "OrderDetails",
+  "plural": "OrderDetails",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "OrderDetailFK": {
+      "name": "OrderDetailFK",
+      "foreignKey": "orderId",
+      "entityKey": "id",
+      "entity": "Orders"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Order": {
+      "type": "belongsTo",
+      "model": "Orders",
+      "foreignKey": "orderId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

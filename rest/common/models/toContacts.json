@@ -1,0 +1,34 @@
+{
+  "name": "ToContacts",
+  "plural": "ToContacts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "menssage": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "dataType": "TEXT",
+        "default": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Contacts": {
+      "type": "hasMany",
+      "model": "Contacts",
+      "foreignKey": "toContactId",
+      "through": "ContactsToContacts",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

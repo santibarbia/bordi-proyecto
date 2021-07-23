@@ -1,0 +1,38 @@
+{
+  "name": "bordi-proyectos",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">= 10",
+    "npm": ">= 5.6.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:all": "npm run lint:rest",
+    "lint:front": "cd ./front && npm run lint",
+    "lint:rest": "cd ./rest && npm run lint",
+    "install:all": "npm-run-all -p install:api install:front",
+    "install:api": "cd ./rest && npm install --force",
+    "install:front": "cd ./front && npm install --force",
+    "build:dev": "cd ./front && npm run build:dev",
+    "build:prod": "cd ./front && npm run build:prod",
+    "copy": "cd ./rest && npm run copy",
+    "build:dev:copy": "npm-run-all build:dev copy",
+    "build:prod:copy": "npm-run-all build:prod copy",
+    "start": "cd ./rest && npm run start",
+    "dev": "npm-run-all -p dev:api dev:front",
+    "dev:api": "cd ./rest && npm run dev",
+    "dev:front": "cd ./front && npm run dev",
+    "posttest": "npm run lint",
+    "autoupdate": "cd ./rest && npm run autoupdate",
+    "automigrate": "cd ./rest && npm run automigrate"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0"
+  },
+  "description": "bordi-proyectos"
+}

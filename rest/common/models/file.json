@@ -1,0 +1,98 @@
+{
+  "name": "Files",
+  "plural": "Files",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "Combo": {
+      "name": "filesCombosFK",
+      "foreignKey": "comboFK",
+      "entityKey": "id",
+      "entity": "Combos"
+    },
+    "History": {
+      "name": "filesHistoriesFK",
+      "foreignKey": "historyFK",
+      "entityKey": "id",
+      "entity": "Histories"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "required": false,
+      "generated": true
+    },
+    "originalName": {
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "container": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "number",
+      "required": false
+    },
+    "urlBase": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "dateUpload": {
+      "type": "date",
+      "required": false
+    },
+    "principal": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "comboFK": {
+      "type": "number",
+      "required": false,
+      "defau": null
+    },
+    "historyFK": {
+      "type": "number",
+      "required": false,
+      "defau": null
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Combo": {
+      "type": "belongsTo",
+      "model": "Combos",
+      "foreignKey": "comboFK"
+    },
+    "History": {
+      "type": "belongsTo",
+      "model": "Histories",
+      "foreignKey": "historyFK"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="container">
+    <div class="row">
+      <div id="div2" style="top:16%">
+        <div class="circulo_izq">
+        </div>
+      </div> 
+        <div class="col-lg-6 col-md-6 col-sm-12" style="margin-top: 7%;">
+          <h2  class="col-sm-9 letra animated zoomIn contacto-text-desktop" id="" >
+            <strong> ¡¡Soluciones en serio!! <br></strong>
+              ES <STRONg>RÁPIDO</STRONg>.<br>
+              ES <strong>FÁCIL</strong>.<br>
+              ES <strong>SIMPLE</strong>.<br>
+              <br>
+              Contanos de que se trata tu proyecto.<br>
+              ¡Te Escuchamos!<br>
+              <br>
+              
+        </h2>
+        
+            
+              <h2 class="letramb" id="contacto-text-mobile" style="font-weight: 200; line-height: 150%;font-size: larger;"><strong> ¡¡Soluciones en serio!! <br>
+                ES <STRONg>RÁPIDO</STRONg>.
+                ES <strong>FÁCIL</strong>.
+                ES <strong>SIMPLE</strong>.<br>
+                Contanos de que se trata tu proyecto.<br>
+                ¡Te Escuchamos!<br>
+                </strong>
+                <p> Por favor completá éste formulario y uno de nuestros colabores se pondrá en contacto a la brevedad. </p>
+                </h2>
+                
+                <h3 class="col-sm-9 letra animated zoomIn contacto-text-desktop"><p> Por favor completá éste formulario y uno de nuestros colabores se pondrá en contacto a la brevedad. </p></h3>           
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12" style="margin-top: 5%;">
+            <form class="m-3" [formGroup]="contacto" (ngSubmit)= "enviarContacto(contacto)">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" formControlName="nombre" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
+                  </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" 
+                  formControlName="email" id="email" aria-describedby="emailHelp" placeholder="Ej: tutti@gmail.com" email>
+                </div>
+                <div class="form-group">
+    
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" class="form-control" formControlName="telefono" name="telefono" id="telefono" placeholder="Telefono" required>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Tipo de institución</label>
+                  <select class="form-control" formControlName="institucion" name="institucion" id="institucion" required>
+                    <option value="Club">Club</option>
+                    <option value="Colegio">Colegio</option>
+                    <option value="Academia">Academia</option>
+                    <option value="Fundacion">Fundacion</option>
+                    <option value="Grupo Scout">Grupo Scout</option>
+                    <option value="Particular">Particular</option>
+                    <option value="Otros">Otros</option>
+                  </select>                </div>
+                  <div class="form-group">
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" class="form-control" formControlName="ciudad" name="ciudad" id="ciudad" placeholder="Ciudad" required>
+                  </div>
+                <div class="form-group">
+                  
+                    <label for="pregunta">¿Que te gustaría preguntarnos?</label>
+                    <textarea name="pregunta" id="pregunta" name="pregunta" 
+                    cols="30" rows="5" formControlName="pregunta" class="form-control"></textarea>
+                </div>
+                <div class="alert alert-success text-center" *ngIf="error">
+                    {{mensaje}}
+                </div>
+                <div class="alert alert-danger text-center" *ngIf="flag">
+                  {{mensaje}}
+              </div>
+                <div class="justify-content-center text-center">
+                <button type="submit"  data-toggle="modal" data-target=".bd-example-modal-sm" class="btn btn-primary text-center align-content-center" style="background-color: #37c7fb; border:#37c7fb">Enviar</button>
+              </div>
+              </form>
+        </div>
+        <div id="div" style="top: 10%;">
+          <div class="circle"></div>
+    </div>
+    </div>
+    </div>
+    
+</div>

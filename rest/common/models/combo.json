@@ -1,0 +1,74 @@
+{
+  "name": "Combos",
+  "plural": "Combos",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "brand": {
+      "type": "string",
+      "required": false
+    },
+    "typeFood": {
+      "type": "string",
+      "required": false
+    },
+    "price": {
+      "type": "number",
+      "required": false,
+      "mysql": {
+        "dataType": "float",
+        "default": 0
+      }
+    },
+    "stock": {
+      "type": "number",
+      "required": false,
+      "default": 0,
+      "mysql": {
+        "dataType": "int",
+        "default": 0
+      }
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "availability": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "dataType": "ENUM('ACTIVO','NOACTIVO','BORRADO')",
+        "default": null,
+        "nullable": "Y"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Files": {
+      "type": "hasMany",
+      "model": "Files",
+      "foreignKey": "comboFK"
+    },
+    "ComboProjects": {
+      "type": "hasMany",
+      "model": "CombosForProjects",
+      "foreignKey": "comboId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,579 @@
+<!-- <img class="w-100 h-auto  " style="z-index: -1; position: absolute; padding: 0%;" src="../../../assets/img/fondo.png" alt=""> -->
+
+<div style="overflow: hidden;">
+
+<!-- inicio mobile -->
+
+<div class="inicioMobile">
+  <img src="../../../assets/img/Futbol niños alegres.jpg" alt="notfound">
+  <div>
+    <img src="../../assets/img/logo_nav.png" alt="" id="label">
+    <p>Nuestro desafío es ser partícipes de tus sueños</p>
+    <p>y traspasar barreras para llegar lejos.</p>
+    <button type="button" class=""  style="background-color: #37c7fb; border: #37c7fb;" [routerLink]="['/contacto']" routerLinkActive="router-link-active" >Quiero participar</button>
+  </div>
+  <img src="../../../assets/img/bariloche-egresados-3.jpg" alt="">
+</div>
+
+    <!--Inicio de pagina -->
+<div class="container-xl col-12" id="inicioDesktop">
+  <div id="div2" *ngIf="ancho>600">
+    <div class="circulo_izq">
+    </div>
+  </div>
+  <div class="container">
+    <div class="row" style="margin-top: 20%;padding: 5%;">
+    
+    <div class="col-lg-5 col-md-6 col-sm-12  col-xs-12" id="headText" >
+        <img class="col-lg-11 col-md-6 col-sm-12" src="../../assets/img/logo_nav.png" alt="" id="label">
+        <h3 [ngClass]="{'letramb text-center': ancho<600}"><strong>Nuestro desafío es ser partícipes de tus sueños<br></strong>
+      <strong>  
+        y traspasar barreras para llegar lejos.</strong>
+    </h3>
+    <div class="circle" *ngIf="ancho<600" [ngClass]="{'mt-2 mb-2':ancho<600}">
+        
+      <img class="w-100 h-100  " style="height: 250px !important;width: 100%;"  src="../../../assets/img/header b-05.png">
+      
+     </div> 
+    <h5 [ngClass]="{'text-center letrambSm': ancho<600}" style="display: none;">Todo lo que soñás está <br>
+      a un clic de hacerse realidad.</h5>
+
+    <button type="button" class="btn btn-primary btn-sm"  *ngIf="ancho>600" style="background-color: #37c7fb; border: #37c7fb;" [routerLink]="['/contacto']" routerLinkActive="router-link-active" >Quiero participar</button>
+    </div>
+    <div *ngIf="ancho<600" class="col-sm-12 col-xs-12 justify-content-center" style="justify-content: center !important;text-align: center;">
+      <br>
+      <button type="button" class="btn btn-primary justify-content-center"  style="background-color: #37c7fb; border: #37c7fb; justify-content: center;" [routerLink]="['/contacto']" routerLinkActive="router-link-active" >Quiero participar</button>
+    </div>
+    <div class="col-8" style="margin-top: -150px;" id="carouselIni">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active" >
+          <img src="../../../assets/img/Futbol niños alegres.jpg" class="rounded-lg d-block w-100 h-100 " alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../../assets/img/bariloche-egresados-3.jpg" class="d-block rounded-lg w-100 h-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../../assets/img/grupal.jpg" class="d-block rounded-lg w-100 h-100" alt="...">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>  
+  </div>
+    <br>
+    <br>
+    <br>
+  
+  </div>
+  
+  </div> 
+
+<div id="div" *ngIf="ancho>600">
+    <div class="circle"></div>
+  </div> 
+  <br>
+  <br> 
+</div>
+
+    <!--Muestra de cualidades-->
+<div  style="width: 100% !important; height: 100% !important; background-color: #E9E9E9;" id="cualidadDesktop"> 
+<br>
+<div class="container-xl">
+   <div class="col-md-12 col-sm-12 col-xs-12 animated delay-1s fadeInUp mb-5" style="margin-top: 8%;">
+    <div class="col-md-12 mt-5"><h1 class="text-center" style="color: #F84629;">¿Cómo funciona Tutti?</h1></div>
+
+
+  <div class="col-md-12 col-sm-12 col-xs-12" >
+    <div class="card-deck mt-5 mb-5" style="">
+    <div class="col-md-1"></div>
+    <div class="card" id="cardCualidad" style="">
+          <img class="card-img-top" src="../../assets/img/destacados_1_05.png" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text-center" style="">Conectamos</h4>
+            <p class="card-text text-center" style="font-size:larger;">Trabajamos en equipo, generando confianza de manera 100 %
+              efectiva.</p>
+          </div>
+        </div>
+        
+        <div class="card" id="cardCualidad2" style="">
+          <img class="card-img-top" src="../../assets/img/Cami_n_05.png" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text-center" style="">Facilitamos</h4>
+            <p class="card-text text-center" style="font-size:larger;">Disponemos de una amplia gama de productos para todos los gustos
+              y todos los presupuestos.</p>
+            
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="card" id="cardCualidad" style="">
+          <img class="card-img-top" src="../../assets/img/cerebro_05.png" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text-center" style="">Sistema Tutti</h4>
+            <p class="card-text text-center" style="font-size:larger;">Brindamos herramientas tecnológicas desarrolladas para ayudarte a 
+              recaudar los fondos necesarios para tu proyecto</p>
+            </div>
+        </div>
+        <div class="card" id="cardCualidad" style="">
+          <img class="card-img-top" src="../../assets/img/personitas_Mesa de trabajo 1.png" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title text-center" style="margin-top: -86px;">Socialmente Comprometidos</h4>
+            <p class="card-text text-center"  style="font-size:larger;">Nuestro compromiso es que logres tus objetivos. Estamos siempre a
+              tu lado. Somos tu aliado!</p>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <br>
+  </div>
+    <br>
+
+</div>
+
+<!-- cualidades-mobile -->
+
+<div id="cualidadMobile">
+  <div class="titleContainer">
+    <h1 class="text-center">¿Cómo te ayudamos?</h1>
+  
+    
+              
+<div id="conteiner">
+          <div class="card" style="border-radius: 5%;">
+            <input type="checkbox" name="contactanos" id="checkboxContact" class="checkboxCard">
+            <img class="card-img-top" src="../../assets/img/destacados_1_05.png" alt="Card image cap" id="imgContact">
+            <div class="card-body">
+              <h4 class="card-title text-center" id="tittleContact">Conectamos</h4>
+              <p class="card-text text-center" id="textContact">Trabajamos en equipo, generando confianza de manera 100 %
+                efectiva.</p>
+            </div>
+          </div>
+          <div class="card" style="border-radius: 5%;">
+            <input type="checkbox" name="contactanos" id="checkboxFacilit" class="checkboxCard">
+            <img class="card-img-top" src="../../assets/img/Cami_n_05.png" alt="Card image cap" id="imgFacilit">
+            <div class="card-body">
+              <h4 class="card-title text-center" id="tittleFacilit">Facilitamos</h4>
+              <p class="card-text text-center" id="textFacilit">Disponemos de una amplia gama de productos para todos los gustos
+                y todos los presupuestos.</p>
+              
+            </div>
+          </div>
+          
+          <div class="card" style="border-radius: 5%;" id="cardSistem">
+            <input type="checkbox" name="contactanos" id="checkboxSistem" class="checkboxCard">
+            <img class="card-img-top" src="../../assets/img/cerebro_05.png" alt="Card image cap" id="imgSistem">
+            <div class="card-body">
+              <h4 class="card-title text-center" id="tittleSistem">Sistema Tutti</h4>
+              <p class="card-text text-center" id="textSistem" >Brindamos herramientas tecnológicas desarrolladas para ayudarte a 
+                recaudar los fondos necesarios para tu proyecto</p>
+              </div>
+          </div>
+          <div class="card" style="border-radius: 5%;" id="cardSistem">
+            <input type="checkbox" name="contactanos" id="checkboxSistem" class="checkboxCard">
+            <img class="card-img-top" src="../../assets/img/personitas_Mesa de trabajo 1.png" alt="Card image cap" id="imgSistem" style="margin-top: 0px;">
+            <div class="card-body" style="    margin-top: -14px;">
+              <h4 class="card-title text-center" id="tittleSistem">Socialmente Comprometidos</h4>
+              <p class="card-text text-center" id="textSistem" style="margin: 34px 12px 12px 12px;">Nuestro compromiso es que logres tus objetivos. Estamos siempre a
+                tu lado. Somos tu aliado!</p>
+              </div>
+          </div>
+
+
+        </div>
+</div>
+
+</div>
+
+
+    <!--Slider de Imagenes(Galeria de 3) -->
+
+
+<!-- Slider mobile -->
+<div class="variedadCalidadMobile">
+<h2>Variedad y calidad es lo que te ofrecemos</h2>
+<div id="CuadradoMobile">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" (click)="sliderAutomatico(0)" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" (click)="sliderAutomatico(1)" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" (click)="sliderAutomatico(2)" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100 h-100" src="../../../assets/img/Segunda_05.png" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 h-100" src="../../../assets/img/Segunda_05.png" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 h-100" src="../../../assets/img/Segunda_05.png" alt="Third slide">
+      </div>
+    </div>
+    
+  </div>
+  <button type="button" class="btn btn-primary btn-sm mt-5 mb-3"  [routerLink]="['/catalogo']" routerLinkActive="router-link-active" >Ver Catálogo</button>
+</div>
+</div>
+
+    <!--Slider de Imagenes(Galeria de 3) -->
+
+    <div class="container-xl col-md-12 mt-5 mb-5 animated delay-1s fadeInUp" id="variedadCalidad">
+   
+  <div class="container-xl">
+  <div class="row"style="margin-top: 23%;">
+    <div class="col-md-4" >
+            <h2><strong>Variedad y Calidad es<br> lo que 
+            te ofrecemos.</strong></h2>
+
+            <button type="button" class="btn btn-primary btn-sm mt-5 mb-3" style="background-color: #37c7fb; border: #37c7fb;" [routerLink]="['/catalogo']" routerLinkActive="router-link-active" >Ver Catálogo</button>
+            <br>
+                <div class="card mt-5 mb-5" style="position: relative; border: none;line-height: 200%; background-color: transparent;">
+                <div class="card-body">
+                  <h4 class="card-title text-center" data-slide-to="0">Combo Bordi 3</h4>
+                  <p class="card-text text-center">1 Pickles <br>
+                    1 Ajies Despuntados <br>
+                    1 Aceitunas Verdes  <br>
+                    1 Morrones <br>
+                    1 Aceitunas Rellenas <br>
+                    1 Aceitunas Negras <br></p>
+                </div>
+                <div id="div3">     
+                  <div class="circle">
+                  </div>
+              </div>
+              </div>               
+        </div>
+        <div class="col-md-1"></div>
+            <div class="col-md-7"   id="Cuadrado">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"  id="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" (click)="sliderAutomatico(0)" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" (click)="sliderAutomatico(1)" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" (click)="sliderAutomatico(2)" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner"  id="carousel">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100 h-100" src="../../../assets/img/Segunda_05.png" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100 h-100" src="../../../assets/img/Segunda_05.png" alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100 h-100" src="../../../assets/img/Segunda_05.png" alt="Third slide">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    <div id="div4">
+      <div class="cuartoCirculo"></div>
+    </div>       
+  </div>     
+  <div id="div5">
+      <div class="cuartoCirculo1"></div>
+  </div> 
+  <br>
+  <br>
+    </div>
+     
+   
+    
+    <!--MIENTRAS MAS SOMOS MEJOR-->
+    
+  <div id="mientrasMasSomosDesktop" style="width: 100% !important; height: 100% !important; background-color: #E9E9E9; margin-top: 10%;">
+
+    <div class="container">
+
+    <div class="col-12 pt-3 text-center animated delay-1s fadeInUp" >
+      <h2 style="margin-top: 10%; margin-bottom: 3%;">Mientras más somos, <span style="color: #F84629;">MEJOR.</span></h2>
+    
+    </div>
+    
+    <div class="col-12 mb-5 fadeInUp">
+      <br>
+    <div class="row" >
+     
+      <div class="col-md-5 ml-5" style="min-width: 225px; min-height: 225px; top: 3%;" *ngFor="let historia of historiesArray">
+         <!-- Button trigger modal -->
+         <a href="#" data-toggle="modal" data-target="#exampleModalLong">
+          <img loading='lazy' id="proyecto" src="{{(historia.filePrincipal == undefined || historia.filePrincipal.url == 0 ) ? ' ' : historia.filePrincipal.url}}" alt="No se encuentra imagen">
+        </a>
+        
+
+<!-- Modal -->
+<div class="modal fade animated delay-1s fadeInUp" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img loading='lazy' id = "contenedor" src="{{(historia.filePrincipal == undefined || historia.filePrincipal.url == 0 )? '' : historia.filePrincipal.url}}" width="465px" height="400px"  alt="Imagen 1">
+      </div>
+      <div class="modal-body" id="contenedor">
+              <span *ngFor="let file of historia.Files">
+                <img loading='lazy' src="{{file.url == undefined ? '' : file.url}}" height="90px" style="margin-left: 5px;margin-bottom: 0px;" id={{file.id}} (click)="funcionModal(file.id)">
+              </span> 
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+          <button class="btn btn-block" data-toggle="modal" data-target="#exampleModalLong" style="background-color: #37c7fb;"><h4>{{historia.title}} <br></h4>
+          </button>
+      </div>
+       <div class="col-sm-2"></div>
+      
+    </div>
+    <br>
+    <br>
+    <br>
+
+
+      <div id="div6">
+        <div class="cuartoCirculo2"></div>
+      </div>
+      
+    </div>
+    <br>
+    <br>
+    <br>
+    
+  </div>
+<br>
+<br>
+
+</div>
+
+<!-- MIENTRAS MAS SOMOS MOBILE -->
+
+<div id="mientrasMasSomosMobile">
+
+  <div class="container">
+
+    <div class="text-center animated delay-1s fadeInUp" >
+
+      <h2 style="margin-top: 2%; margin-bottom: 3%;">Mientras más somos, <span style="color: #F84629;">MEJOR.</span></h2>
+  
+    </div>
+  
+    <div class="fadeInUp">
+      
+      <div class="row" >
+   
+        <div id="contenedorImg"  *ngFor="let historia of historiesArray">
+       <!-- Button trigger modal -->
+          <a href="#" data-toggle="modal" data-target="#exampleModalLong">
+            <img loading='lazy' src="{{(historia.filePrincipal == undefined || historia.filePrincipal.url == 0 ) ? ' ' : historia.filePrincipal.url}}" alt="No se encuentra imagen">
+          </a>
+      
+
+            <!-- Modal -->
+          <div class="modal fade animated delay-1s fadeInUp" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <img loading='lazy' id = "contenedor" src="{{(historia.filePrincipal == undefined || historia.filePrincipal.url == 0 )? '' : historia.filePrincipal.url}}" width="465px" height="400px"  alt="Imagen 1">
+              </div>
+              <div class="modal-body" id="contenedor">
+                      <span *ngFor="let file of historia.Files">
+                        <img loading='lazy' src="{{file.url == undefined ? '' : file.url}}" height="90px" style="margin-left: 5px;margin-bottom: 0px;" id={{file.id}} (click)="funcionModal(file.id)">
+                      </span> 
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+          </div>
+        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModalLong"><h4>{{historia.title}}</h4>
+            </button>
+    </div>
+     <div class="col-sm-2"></div>
+    
+  </div>
+
+
+
+    <div id="div6">
+      <div class="cuartoCirculo2"></div>
+    </div>
+    
+  </div>
+  </div>
+</div>
+    <!--PREGUNTAS FRECUENTES-->
+<div class="container">
+   
+    <div class="col-12 mt-5 mb-5 p-3 animated delay-2s fadeInUp" style="margin-bottom: 20px;">
+    <div id="div7">
+        <div class="cuartoCirculo3"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+      <h2>Preguntas frecuentes</h2>
+      <br>
+      
+      <div class="row mt-2">
+        <div class="col-12 mt-2">
+          <button class="btn btn-warning btn-lg btn-block" style="color: white;" type="button" data-toggle="collapse" data-target="#respuesta" aria-expanded="false" aria-controls="respuesta">
+            ¿Qué es Tutti?
+          </button>
+        <div class="collapse" id="respuesta">
+          <div class="card card-body mt-1">
+            Es una herramienta rápida, segura y eficaz que te permite recaudar fondos para algún fin específico. 
+            Viajes de egresados, viajes deportivos, compra de equipamiento o reformas de las instalaciones para 
+            tu club, escuela o academia, cambio de las camisetas de tu equipo de futbol, entre otros). 
+            Estamos orgullosos de ser la conexión que te acerque a tus objetivos. Nuestros valores son: 
+            Actitud positiva; Humanidad; Integridad ética; Compromiso; Trabajo en equipo y Gratitud.          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 mt-2">
+          <button type="button" class="btn btn-warning btn-lg btn-block" style="color: white;" data-toggle="collapse" data-target="#respuesta2" aria-expanded="false" aria-controls="respuesta2">
+            ¿Cómo funciona Tutti?
+          </button>
+          <div class="collapse" id="respuesta2">
+            <div class="card card-body mt-1">
+              Los grupos de personas nos contactan y nos cuentan sus necesidades / proyectos;
+              nosotros  ponemos a disposición una gran cantidad de combos alimenticios de amplia variedad
+              y primera calidad. Mediante la venta de los mismos, logran recaudar los fondos necesarios
+              para alcanzar esos objetivos. “Avanzamos juntos hasta la meta”.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 mt-2">
+          <button type="button" class="btn btn-warning btn-lg btn-block" 
+          style="color: white;" data-toggle="collapse" 
+          data-target="#respuesta3" aria-expanded="false" aria-controls="respuesta3">
+          ¿Quienes pueden recaudar fondos?  
+        </button>
+          <div class="collapse" id="respuesta3">
+            <div class="card card-body mt-1">
+              Todas aquellas instituciones, colegios, clubes, academias, fundaciones o personas
+              particulares que tengan la necesidad de recolectar dinero para cumplimentar una meta.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 mt-2">
+          <button type="button" class="btn btn-warning btn-lg btn-block" style="color: white;" data-toggle="collapse"
+           data-target="#respuesta4" aria-expanded="false" aria-controls="respuesta4">¿Cómo podemos participar?</button>
+          <div class="collapse" id="respuesta4">
+            <div class="card card-body mt-1">
+              Completa el formulario de contacto con todos los datos solicitados o envianos un mail
+              a info@tutticonvos.com y nos comunicaremos a la brevedad.
+            </div>
+          </div>        
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 mt-2">
+          <button type="button" class="btn btn-warning btn-lg btn-block" style="color: white;" data-toggle="collapse" data-target="#respuesta5" aria-expanded="false" aria-controls="respuesta5">¿Es necesaria alguna inversión inicial?</button>
+          <div class="collapse" id="respuesta5">
+            <div class="card card-body mt-1">
+              No, no trabajamos con seña ni adelanto. Los combos se abonan al momento de recibirlos.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 mt-2">
+          <button type="button" class="btn btn-warning btn-lg btn-block" style="color: white;" data-toggle="collapse" data-target="#respuesta6" aria-expanded="false" aria-controls="respuesta5">¿Cómo es el envío de la mercadería?</button>
+          <div class="collapse" id="respuesta6">
+            <div class="card card-body mt-1">
+              Contamos con la lógistica necesaria para llevar los combos hasta el domicilio pactado. 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12 mt-2">
+          <button type="button" class="btn btn-warning btn-lg btn-block" style="color: white;" data-toggle="collapse" data-target="#respuesta7" aria-expanded="false" aria-controls="respuesta5">¿Cuánto tarda en llegar mi pedido?</button>
+          <div class="collapse" id="respuesta7">
+            <div class="card card-body mt-1">
+              La fecha de entrega dependerá de cada caso en particular. Nuestros coordinadores de Tutti te darán asesoría y te brindarán acompañamiento en todo el proceso.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2 mb-5">
+        <div class="col-12 mt-2">
+          <button type="button" class="btn btn-warning btn-lg btn-block" style="color: white;" data-toggle="collapse" data-target="#respuesta8" aria-expanded="false" aria-controls="respuesta8">¿Los combos estan listos para entregar al consumidor final?</button>
+          <div class="collapse" id="respuesta8">
+            <div class="card card-body mt-1">
+              Si, los combos llegan listos para ser entregados. Ademas no requieren cadena de frio y son productos no perecederos.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- FIN DE PAGINA -->
+<div class="animated delay-2s fadeInUp" id="footerDesktop"  style="width: 100% !important; height: 100% !important; background-color: #E9E9E9;">    
+<br>
+<br>
+<div class="container-xl">
+  <div class="row mt-5 p-5">
+    <div class="col-6 p-5" style="position: relative; ">
+      <br>
+      <h2><strong> Confiamos en que trabajando en equipo,</strong><br>
+        <strong>  todo se puede.</strong>
+      </h2><br>
+      <h5>Tutti siempre está para darte una mano <br>
+      ¡Cumplamos tu sueños! <br>
+      </h5>
+
+  <button type="button" class="btn btn-primary btn-sm mt-3"  style="background-color: #37c7fb; border: #37c7fb;" [routerLink]="['/contacto']" routerLinkActive="router-link-active" >Quiero participar</button>
+ </div>
+  <div>
+    <div id="div8">
+      <div class="circulo_row">
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer Mobile  -->
+<div class="animated delay-2s fadeInUp"id="footerMobile">    
+  <div>
+    <div>
+      <div>
+        <h2><strong> Confiamos en que trabajando en equipo,</strong>
+          <strong>  todo se puede..</strong>
+        </h2>
+        <h5>Tutti siempre está para darte una mano
+        ¡Cumplamos tu sueños!
+        </h5>
+  
+    <button type="button" class="btn btn-primary btn-sm mt-3"  [routerLink]="['/contacto']" routerLinkActive="router-link-active" >Comenzar Mi Proyecto</button>
+   </div>
+    <div>
+      <div id="div8">
+        <div class="circulo_row">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>

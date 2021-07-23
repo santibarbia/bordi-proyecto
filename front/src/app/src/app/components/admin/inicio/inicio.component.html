@@ -1,0 +1,74 @@
+<div class="w-100">
+<h1>¡Bienvenido, {{usuario}}!</h1>
+<hr>
+<div *ngIf="mensaje == 'El proyecto se creo con exito' ">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Felicitaciones!!</strong> {{mensaje}}.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<div *ngIf="mensaje == 'No se pudo crear el proyecto, verifique sus datos' ">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Error!!</strong> {{mensaje}}.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<div class="card-columns" style="margin: 9%;">
+    <div class="col mb-4">
+        <div class="card navbar-light bg-light">
+          <div class="card-body text-center">
+            <h1 class="card-title mt-3" style="font-size: 70px;">{{estadisticas.combosGestionados == undefined ? '' : estadisticas.combosGestionados }}</h1>
+            <h5 class="card-title font-weight-light" style="font-size: 30px;">COMBOS GESTIONADOS</h5>
+          </div>
+        </div>
+      </div>
+     
+      <div class="col mb-4">
+        <div class="card navbar-light bg-light">
+          
+          <div class="card-body text-center">
+            <h1 class="card-title mt-3" style="font-size: 70px;">{{estadisticas.proyectosActivos}}</h1>
+            <h5 class="card-title font-weight-light" style="font-size: 30px;">PROYECTOS ACTIVOS</h5>
+          </div>
+        </div>
+      </div>
+       <div class="col mb-4">
+        <div class="card navbar-light bg-light">
+            <img src="{{ (estadisticas.comboMasVendido != null  ? ( estadisticas.comboMasVendido.Files.length != 0 ? estadisticas.comboMasVendido.Files[0].url : '' ) : '')}}" width="50" height="145" class="card-img-top" alt="...">
+          <div class="card-body">  
+            <h5 class="card-title text-center font-weight-light" style="font-size: 30px;">COMBO MAS VENDIDO</h5>
+            <h5 class="card-title text-center font-weight-light" style="font-size: 25px;">{{(estadisticas.comboMasVendido == null  ? '' : estadisticas.comboMasVendido.name | uppercase)}}</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card navbar-light bg-light">
+            <div class="card-body text-center">
+                <h1 class="card-title mt-3" style="font-size: 70px;">{{estadisticas.proyectosTerminados}}</h1>
+                <h5 class="card-title font-weight-light" style="font-size: 30px;">PROYECTOS TERMINADOS</h5>
+              </div>
+        </div>
+      </div>
+</div>
+<div class="text-right" style="margin-top: -5%;">
+    <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#gestProyecto" style="background-color: #37c7fb; border: #37c7fb;">Nuevo proyecto</button>
+</div>
+<div class="modal fade" id="gestProyecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fa-pull-right" id="exampleModalLabel">Crear proyecto</h5>
+        
+      </div>
+      <div class="modal-body">
+        <app-gest-proyectos (mensajeEvent)="recibir($event)"></app-gest-proyectos>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

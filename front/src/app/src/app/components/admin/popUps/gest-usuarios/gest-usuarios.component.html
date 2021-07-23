@@ -1,0 +1,39 @@
+<form [formGroup]="gestUsuario">
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="realm">Nombre Completo</label>
+        <input type="text" formControlName="realm" class="form-control" id="realm">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="username">Usuario</label>
+        <input type="text" formControlName="username" class="form-control" id="username">
+      </div>
+</div>  
+    <div class="form-group">
+      <label for="address">Domicilio</label>
+      <input type="text" class="form-control" formControlName="address"  id="address" placeholder="1234 av colon">
+    </div>
+    <div class="form-group">
+        <label for="email">Correo Electrónico (Opcional)</label>
+        <input type="email" formControlName="email" class="form-control" id="email">
+      </div>
+    <div class="form-row"> 
+       <div class="form-group col-md-6">
+        <label for="dni_cuil">DNI</label>
+        <input type="number" class="form-control" formControlName="dni_cuil" id="dni_cuil">
+      </div>
+      
+    <div class="form-group col-md-6">
+    <label for="typeRole">Elija el rol</label>
+        <select id="typeRole" formControlName="typeRole" class="form-control">
+          <option selected value="ADMIN">ADMIN</option>
+          <option value="COLABORADOR">COLABORADOR</option>
+        </select>
+      </div>
+   
+    </div>
+</form> 
+    <div class="modal-footer">    
+        <button type="submit" class="btn btn-primary" (click)="crear(gestUsuario)">Crear</button>
+        <button type="button" data-dismiss="modal" class="btn btn-primary">Cancelar</button>
+    </div>

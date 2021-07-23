@@ -1,0 +1,58 @@
+image: node:10
+pipelines:
+    branches:
+        production:
+          - step:
+              name: get app.yaml
+              script:
+                  - echo -e $PROD_APP_YAML >> ./rest/app.yaml
+                  - cat rest/app.yaml
+                  - echo -e $PROD_APP_YAML
+                  - echo -e "$PROD_APP_YAML"
+              artifacts:
+                  - rest/**
+          - step:
+              name: install dependencies root
+              trigger: manual
+              script:
+                  - npm install --force
+              artifacts:
+                  - node_modules/**
+                  - rest/**
+          - step:
+              name: install all dependencies
+              script:
+                  - npm run install:all
+              artifacts:
+                  - node_modules/**
+                  - rest/**
+                  - front/**
+          - step:
+              name: build and copy
+              script:
+                  - npm run build:prod:copy
+              artifacts:
+                  - rest/**
+          - step:
+              name: get service account
+              script:
+                  - echo $PROD_GC_SERVICE_ACCOUNT >> ./rest/service.json
+                  - echo $PROD_GC_SERVICE_ACCOUNT >> ./rest/storage.json
+              artifacts:
+                  - rest/**
+          - step:
+              name: control contenido
+              script:
+                  - ls rest
+                  - ls rest/client
+          - step:
+              name: Deploy in Google App Engine
+              image: google/cloud-sdk:latest
+              trigger: manual
+              script:
+                  - gcloud auth activate-service-account --key-file ./rest/service.json
+                  - gcloud config set account $PROD_GC_ACCOUNT
+                  - gcloud config set project $PROD_GC_PROJECT
+                  - cd ./rest
+                  - ls client
+                  - gcloud app deploy --version=alpha --stop-previous-version

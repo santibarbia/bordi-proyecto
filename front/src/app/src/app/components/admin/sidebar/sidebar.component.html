@@ -1,0 +1,19 @@
+<aside class="h-100 m-0" style="width: 25%;">
+    <div class="position-static h-100">
+        <nav class="sidebar navbar-light bg-light">
+        
+        <a class="navbar-brand m-5" href="#">
+            <img src="../../assets/img/logo_nav.png" class="img-fluid" alt="Responsive image" loading="lazy">
+        </a>
+            <ul class="navbar-nav text-center">
+                <li class="nav-link m-3"><a [routerLink]="['inicio']" *ngIf="rol == 'ADMIN'" routerLinkActive="router-link-active" >INICIO</a></li>
+                <li class="nav-link m-3"><a [routerLink]="['proyectos']" *ngIf="rol == 'ADMIN'|| rol == 'COLABORADOR'"  routerLinkActive="router-link-active" >PROYECTOS/COMBOS</a></li>
+                <li class="nav-link m-3"><a [routerLink]="['calendario']" *ngIf="rol == 'ADMIN'|| rol == 'COLABORADOR'" routerLinkActive="router-link-active" >CALENDARIO</a></li>
+                <li class="nav-link m-3"><a [routerLink]="['usuarios']" *ngIf="rol == 'ADMIN'"  routerLinkActive="router-link-active" >USUARIOS</a></li>
+            </ul> 
+    <div class="text-center m-5">
+            <button class="btn btn-secondary btn-md m-3" [routerLink]="['home']" routerLinkActive="router-link-active"  (click)="logout()">Cerrar Sesión</button>
+    </div>
+    </nav>
+</div>
+</aside>

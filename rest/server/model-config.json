@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mySqlDS",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "ACL": {
+    "dataSource": "mySqlDS",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mySqlDS",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mySqlDS",
+    "public": false
+  },
+  "Roles": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Users": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Combos": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Histories": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Files": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Contacts": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "ToContacts": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "ContactsToContacts": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Projects": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "ProjectDetails": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Orders": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "OrderDetails": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "Emails": {
+    "dataSource": "myEmailDS",
+    "public": true
+  },
+  "Containers": {
+    "dataSource": "storage",
+    "public": true
+  },
+  "CombosForProjects": {
+    "dataSource": "mySqlDS",
+    "public": true
+  },
+  "TuttiEvents": {
+    "dataSource": "mySqlDS",
+    "public": true
+  }
+}

@@ -1,0 +1,47 @@
+<nav id="letra" class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+  <a class="navbar-brand" href="#">
+    <img class="img-fluid" src="../../assets/img/logo_nav.png" width="60" height="60" alt="" loading="lazy">
+  </a>
+    <div class="collapse navbar-collapse" [ngClass]="{'justify-content-end': ancho<600}" id="navbarNav">
+      <ul class="navbar-nav ml-auto mr-3" *ngIf="!seguridad.loggedIn">
+        <li class="nav-item" [ngClass]="{'text-center': ancho<600}">
+          <a class="nav-link mr-2"  [routerLink]="['home']" active>HOME</a>
+        </li>
+        <li class="nav-item mr-2" [ngClass]="{'text-center': ancho<600}">
+          <a class="nav-link"  [routerLink]="['catalogo']">CATALOGO</a>
+        </li>
+        <li class="nav-item mr-2 " [ngClass]="{'text-center': ancho<600}">
+          <a class="nav-link"  [routerLink]="['contacto']">CONTACTO</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'text-center': ancho<600}">
+          <button style="border: none;" *ngIf="ancho >800" id="rectangulo" [routerLink]="['login']"><i class="fas fa-users"></i></button>
+          <button class="nav-link btn btn-danger" style=" background-color: red; width: 100% !important;color: white;" *ngIf="ancho <800" [routerLink]="['login']">INICIAR SESION</button>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto mr-3" *ngIf="seguridad.loggedIn">
+        <li class="nav-item" [ngClass]="{'text-center': ancho<600}" *ngIf="seguridad.rol == 'PROYECTO'">
+          <a class="nav-link mr-2"  [routerLink]="['proyecto']" active>Proyecto</a>
+        </li>
+        <li class="nav-item mr-2" [ngClass]="{'text-center': ancho<600}" *ngIf="seguridad.rol == 'CLIENTE'">
+          <a class="nav-link"  [routerLink]="['proyecto-lider']">Proyecto</a>
+        </li>
+        <li class="nav-item mr-2 " [ngClass]="{'text-center': ancho<600}" *ngIf="seguridad.rol == 'ADMIN'|| seguridad.rol == 'COLABORADOR'">
+          <a class="nav-link"  [routerLink]="['admin']">Admin</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'text-center': ancho<600}">
+          <button class="btn btn-outline-danger" (click)="logout()"  [routerLink]="['home']">Salir</button>
+        </li>
+      </ul>
+      
+    </div> 
+   <button class="navbar-toggler btn-sm" [ngClass]="{'ml-auto': ancho<600}" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+    <span class="navbar-toggler-icon"></span>
+  </button>
+      
+  
+  </div>
+    
+</nav>
+  

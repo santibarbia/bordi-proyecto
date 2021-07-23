@@ -1,0 +1,27 @@
+#icon {
+  display: none;
+}
+tbody {
+  height: 20px !important;
+}
+tr:hover #icon {
+  display: inline;
+  justify-items: end;
+}
+.btnCargarVentaContainer {
+  font-size: 30px;
+}
+.btnCargarVenta {
+  border-radius: 20px;
+}
+
+.enviar-proyecto-container button {
+}
+@media screen and (max-width: 425px) {
+  .vendedor-container {
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+}

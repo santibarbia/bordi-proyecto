@@ -1,0 +1,55 @@
+{
+  "name": "Contacts",
+  "plural": "Contacts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "CombosFK": {
+      "name": "ContactUsersFK",
+      "foreignKey": "userFk",
+      "entityKey": "id",
+      "entity": "Users"
+    }
+  },
+  "properties": {
+    "nameContact": {
+      "type": "string",
+      "required": true
+    },
+    "typeContact": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "dataType": "ENUM('EMAIL','TEL')",
+        "default": null,
+        "nullable": "Y"
+      }
+    },
+    "valueContact": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "Users",
+      "foreignKey": "userFk"
+    },
+    "toContacts": {
+      "type": "hasMany",
+      "model": "ToContacts",
+      "foreignKey": "contactId",
+      "through": "ContactsToContacts",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
